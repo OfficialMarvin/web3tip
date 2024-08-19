@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tip Jar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+        .wallet-address {
+            font-size: 1.2em;
+            word-break: break-all;
+        }
+        .copy-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Support Me with an ETH Tip!</h1>
+        <p>Scan the QR code or copy the wallet address below to send a tip.</p>
+        <div class="qr-code">
+            <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=YOUR_WALLET_ADDRESS" alt="QR Code">
+        </div>
+        <div class="wallet-address" id="walletAddress">YOUR_WALLET_ADDRESS</div>
+        <button class="copy-button" onclick="copyAddress()">Copy Wallet Address</button>
+    </div>
+
+    <script>
+        function copyAddress() {
+            const walletAddress = document.getElementById('walletAddress').innerText;
+            navigator.clipboard.writeText(walletAddress).then(() => {
+                alert('Wallet address copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
